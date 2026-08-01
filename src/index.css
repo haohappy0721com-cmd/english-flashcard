@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 antialiased;
+  }
+}
+
+@layer components {
+  .card-flip { perspective: 1000px; }
+  .card-flip-inner {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+  }
+  .card-flip-inner.revealed { transform: rotateY(180deg); }
+  .card-flip-front, .card-flip-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .card-flip-back { transform: rotateY(180deg); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
